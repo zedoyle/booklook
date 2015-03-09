@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  type: 
+  uses: 1
+  trustlevel: 1
+  version_id: 
+
+two:
+  url: MyString
+  type: 
+  uses: 1
+  trustlevel: 1
+  version_id: 
