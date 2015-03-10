@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lastaccess: 2015-03-09 16:00:34
+  edition: 1
+  size: 1
+  book_id: 
+
+two:
+  lastaccess: 2015-03-09 16:00:34
+  edition: 1
+  size: 1
+  book_id: 
