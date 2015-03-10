@@ -10,3 +10,5 @@ import scrapy
 class BookcrawlItem(scrapy.Item):
     title = scrapy.Field()
     url = scrapy.Field()
+    pages = scrapy.Field()
+    author = scrapy.Field()
