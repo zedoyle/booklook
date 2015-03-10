@@ -1,0 +1,14 @@
+<h1>BookLook</h1>
+
+Obviously, in beta. Here's a list of every book we have.
+
+<ul>
+<% Book.all.each do |b| %>
+  <li>Name: <%= b.name %>, Author: <%= b.author %></li>
+  <ul>
+  <% b.versions.all.each do |v| %>
+  <li>Version: <%= v.edition %></li>
+  <% end %>
+  </ul>
+<% end %>
+</ul>
