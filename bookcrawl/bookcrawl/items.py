@@ -12,3 +12,12 @@ class BookcrawlItem(scrapy.Item):
     url = scrapy.Field()
     pages = scrapy.Field()
     author = scrapy.Field()
+
+class AmazonSearchItem(scrapy.Item):
+    s_title = scrapy.Field()
+    s_url = scrapy.Field()
+
+class AmazonPageItem(scrapy.Item):
+    p_title = scrapy.Field()
+    p_author = scrapy.Field()
+    p_pages = scrapy.Field()
