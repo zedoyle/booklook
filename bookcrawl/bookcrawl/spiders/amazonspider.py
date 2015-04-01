@@ -13,12 +13,11 @@ class AmazonSpider(scrapy.Spider):
     
     allowed_domains = ["amazon.com"]
 
-    def __init__(self, title="computer networks", author="andrew tanenbaum",*args, **kwargs):
+    def __init__(self, title=None, author=None,*args, **kwargs):
         super(AmazonSpider, self).__init__(*args, **kwargs)
         self.target_title = title.replace(" ","+")
         if(author != None):
             self.target_author = str(author).replace(" ","+")
-        
         self.query_string = amazon_book_search_base_string+self.target_title
         if(author != ""):
             self.query_string = self.query_string+"+"+self.target_author

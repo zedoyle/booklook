@@ -3,8 +3,7 @@
 import json
 import shutil
 
-from bookcrawl.spiders.bookspider import BookSpider
-from bookcrawl.spiders.amazonspider import AmazonSpider
+from bookcrawl.spiders.pagespider import PageSpider
 from bookcrawl.assigner import BookAssigner
 from scrapy.crawler import Crawler
 from scrapy import log, signals
@@ -15,14 +14,11 @@ from scrapy.utils.project import get_project_settings
 def announce_completion(data):
     print "done"
 
-def search_amazon_for(d_title, d_author=None):
-    if(d_author == None):
-        spider = AmazonSpider(d_title)
-    else:
-        spider = AmazonSpider(d_title, d_author)
+def lookup_pages_by_urls(p_urls):
+    spider = PageSpider(p_urls)
     settings = get_project_settings()
     settings.overrides['FEED_FORMAT'] = 'json'
-    settings.overrides['FEED_URI'] = 'search_result.json' 
+    settings.overrides['FEED_URI'] = 'page_result.json' 
     crawler = Crawler(settings)
     crawler.signals.connect(reactor.stop, signal=signals.spider_closed)
     crawler.configure()
@@ -31,3 +27,9 @@ def search_amazon_for(d_title, d_author=None):
     crawl_result.addCallback(announce_completion)
     log.start()
     reactor.run()
+
+def main():
+    lookup_pages_by_urls(["http://www.amazon.com/Computer-Networks-5th-Andrew-Tanenbaum/dp/0132126958/"])
+
+if __name__ == "__main__":
+    main()

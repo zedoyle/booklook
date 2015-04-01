@@ -60,6 +60,7 @@ class BookSpider(scrapy.Spider):
                 else:
                     for block in req.iter_content(1024):
                         if not block:
+                            print "empty block, done writing"
                             break
                         print "writing block..."
                         handle.write(block) 
