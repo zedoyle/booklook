@@ -19,11 +19,10 @@ class PageSpider(scrapy.Spider):
 		except IndexError:
 			log.msg("NO RESULTS FOUND")
 			return None
-		log.msg("Length of the thing: "+str(len(result)))
 		for res in result:
 			text = res.xpath('text()').extract()[0]
-			log.msg(text)
 			if "pages" in text:
 				pageinfo['p_pages'] = text
+		
 		return pageinfo
 		

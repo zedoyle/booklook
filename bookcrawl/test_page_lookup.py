@@ -24,12 +24,12 @@ def lookup_pages_by_urls(p_urls):
     crawler.configure()
     crawler.crawl(spider)
     crawl_result = crawler.start()
-    crawl_result.addCallback(announce_completion)
     log.start()
     reactor.run()
 
+
 def main():
-    lookup_pages_by_urls(["http://www.amazon.com/Computer-Networks-5th-Andrew-Tanenbaum/dp/0132126958/"])
+    lookup_pages_by_urls(["http://www.amazon.com/Computer-Networks-5th-Andrew-Tanenbaum/dp/0132126958"])
 
 if __name__ == "__main__":
     main()

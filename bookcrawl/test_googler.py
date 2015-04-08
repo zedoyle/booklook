@@ -23,3 +23,9 @@ def google_assignments_at(assignment_location):
         crawler.start()
         log.start()
         reactor.run()
+
+def main():
+    google_assignments_at("assignments.txt")
+
+if __name__ == "__main__":
+    main()
