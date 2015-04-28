@@ -1,0 +1,110 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module pagespider</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>pagespider</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/zach/semesters/spring2015/sdev/booklook/bookcrawl/bookcrawl/spiders/pagespider.py">/home/zach/semesters/spring2015/sdev/booklook/bookcrawl/bookcrawl/spiders/pagespider.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="scrapy.log.html">scrapy.log</a><br>
+</td><td width="25%" valign=top><a href="scrapy.html">scrapy</a><br>
+</td><td width="25%" valign=top><a href="scrapy.signals.html">scrapy.signals</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>(<a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="pagespider.html#PageSpider">PageSpider</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PageSpider">class <strong>PageSpider</strong></a>(<a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;simplest&nbsp;of&nbsp;the&nbsp;three&nbsp;spiders,&nbsp;<a href="#PageSpider">PageSpider</a>&nbsp;exists&nbsp;only&nbsp;to&nbsp;parse&nbsp;information&nbsp;from<br>
+an&nbsp;Amazon.com&nbsp;product&nbsp;page-&nbsp;specifically,&nbsp;page&nbsp;count.&nbsp;As&nbsp;it&nbsp;turns&nbsp;out,&nbsp;Amazon.com&nbsp;is<br>
+by&nbsp;far&nbsp;the&nbsp;easiest-to-access&nbsp;authoritative&nbsp;source&nbsp;on&nbsp;the&nbsp;page&nbsp;counts&nbsp;of&nbsp;different<br>
+editions&nbsp;of&nbsp;books-&nbsp;especially&nbsp;textbooks.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="pagespider.html#PageSpider">PageSpider</a></dd>
+<dd><a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a></dd>
+<dd><a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PageSpider-__init__"><strong>__init__</strong></a>(self, passed_urls<font color="#909090">=()</font>, *args, **kwargs)</dt><dd><tt>Calls&nbsp;the&nbsp;generic&nbsp;spider&nbsp;constructor&nbsp;and&nbsp;passes&nbsp;the&nbsp;only&nbsp;parameter,&nbsp;a&nbsp;list<br>
+of&nbsp;Amazon.com&nbsp;product&nbsp;page&nbsp;URLs,&nbsp;to&nbsp;the&nbsp;spider&nbsp;itself.</tt></dd></dl>
+
+<dl><dt><a name="PageSpider-parse"><strong>parse</strong></a>(self, response)</dt><dd><tt>Looks&nbsp;for&nbsp;a&nbsp;list&nbsp;item&nbsp;inside&nbsp;an&nbsp;unordered&nbsp;list&nbsp;inside&nbsp;a&nbsp;table&nbsp;whose&nbsp;text<br>
+mentions&nbsp;the&nbsp;word&nbsp;'page';&nbsp;the&nbsp;first&nbsp;occurance&nbsp;of&nbsp;which&nbsp;always&nbsp;contains<br>
+the&nbsp;page&nbsp;count.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>allowed_domains</strong> = ['amazon.com']</dl>
+
+<dl><dt><strong>name</strong> = 'pagespider'</dl>
+
+<dl><dt><strong>start_urls</strong> = ()</dl>
+
+<hr>
+Methods inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><a name="PageSpider-__repr__"><strong>__repr__</strong></a> = __str__(self)</dt></dl>
+
+<dl><dt><a name="PageSpider-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PageSpider-log"><strong>log</strong></a>(self, message, level<font color="#909090">=10</font>, **kw)</dt><dd><tt>Log&nbsp;the&nbsp;given&nbsp;messages&nbsp;at&nbsp;the&nbsp;given&nbsp;log&nbsp;level.&nbsp;Always&nbsp;use&nbsp;this<br>
+method&nbsp;to&nbsp;send&nbsp;log&nbsp;messages&nbsp;from&nbsp;your&nbsp;spider</tt></dd></dl>
+
+<dl><dt><a name="PageSpider-make_requests_from_url"><strong>make_requests_from_url</strong></a>(self, url)</dt></dl>
+
+<dl><dt><a name="PageSpider-set_crawler"><strong>set_crawler</strong></a>(self, crawler)</dt></dl>
+
+<dl><dt><a name="PageSpider-start_requests"><strong>start_requests</strong></a>(self)</dt></dl>
+
+<hr>
+Class methods inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><a name="PageSpider-handles_request"><strong>handles_request</strong></a>(cls, request)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>crawler</strong></dt>
+</dl>
+<dl><dt><strong>settings</strong></dt>
+</dl>
+<hr>
+Static methods inherited from <a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a>:<br>
+<dl><dt><a name="PageSpider-__new__"><strong>__new__</strong></a>(cls, *args, **kwargs)</dt></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

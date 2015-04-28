@@ -1,14 +1,19 @@
 import Queue
+import json
 
 class BookAssigner:
-    assignments_path = ""
+    page_path = ""
+    title_path = ""
     assign_file = None
     assignments = Queue.Queue()
-    def __init__(self, path_to_file):
-        self.assignments_path = path_to_file
+    def __init__(self, path_to_page_file, path_to_auth_title_file):
+        self.page_path = path_to_page_file
+        self.title_path = path_to_auth_title_file
         self.assign_file = open(self.assignments_path, "r")
-        for line in self.assign_file:
-            self.assignments.put(line.replace(" ","+").split("|", 4))
+	jsondata = json.load(self.assign_file)
+	print(jsondata)
+        #for line in self.assign_file:
+        #    self.assignments.put(line.replace(" ","+").split("|", 4))
 
     def assignment_iterator(self):
         while not self.assignments.empty():

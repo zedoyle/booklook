@@ -1,0 +1,129 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module bookspider</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>bookspider</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/zach/semesters/spring2015/sdev/booklook/bookcrawl/bookcrawl/spiders/bookspider.py">/home/zach/semesters/spring2015/sdev/booklook/bookcrawl/bookcrawl/spiders/bookspider.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="scrapy.log.html">scrapy.log</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="requests.html">requests</a><br>
+</td><td width="25%" valign=top><a href="scrapy.html">scrapy</a><br>
+<a href="scrapy.signals.html">scrapy.signals</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>(<a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="bookspider.html#BookSpider">BookSpider</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BookSpider">class <strong>BookSpider</strong></a>(<a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;spider&nbsp;to&nbsp;grab&nbsp;information&nbsp;on&nbsp;book&nbsp;PDFs&nbsp;from&nbsp;a&nbsp;trimmed&nbsp;google&nbsp;search&nbsp;using&nbsp;the&nbsp;Scrapy&nbsp;webcrawler&nbsp;API.<br>
+&nbsp;<br>
+Initialized&nbsp;with&nbsp;an&nbsp;array&nbsp;of&nbsp;author,&nbsp;title,&nbsp;and&nbsp;page&nbsp;info&nbsp;the&nbsp;search&nbsp;for,&nbsp;a&nbsp;method&nbsp;of&nbsp;page&nbsp;count<br>
+comparison,&nbsp;and&nbsp;a&nbsp;permitted&nbsp;error&nbsp;in&nbsp;page&nbsp;count,&nbsp;to&nbsp;account&nbsp;for&nbsp;padding/omissions&nbsp;from&nbsp;some&nbsp;PDFs.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="bookspider.html#BookSpider">BookSpider</a></dd>
+<dd><a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a></dd>
+<dd><a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="BookSpider-__init__"><strong>__init__</strong></a>(self, target_info_array<font color="#909090">=None</font>, page_count_mode<font color="#909090">='equals'</font>, page_count_fuzziness<font color="#909090">=10</font>, *args, **kwargs)</dt><dd><tt>Initializes&nbsp;the&nbsp;crawler&nbsp;by&nbsp;taking&nbsp;an&nbsp;untyped&nbsp;array&nbsp;of&nbsp;info&nbsp;[name,author,pagecount]&nbsp;<br>
+regarding&nbsp;the&nbsp;target&nbsp;book&nbsp;and&nbsp;transforming&nbsp;it&nbsp;into&nbsp;a&nbsp;google&nbsp;search&nbsp;string&nbsp;(and&nbsp;then<br>
+appending&nbsp;to&nbsp;that&nbsp;until&nbsp;it&nbsp;is&nbsp;a&nbsp;valid&nbsp;request&nbsp;URL).</tt></dd></dl>
+
+<dl><dt><a name="BookSpider-parse"><strong>parse</strong></a>(self, response)</dt><dd><tt>Parses&nbsp;an&nbsp;HTTP&nbsp;response&nbsp;from&nbsp;google.&nbsp;Minimal&nbsp;functionality&nbsp;is&nbsp;to&nbsp;download&nbsp;all&nbsp;valid&nbsp;PDFs<br>
+that&nbsp;were&nbsp;returned&nbsp;in&nbsp;the&nbsp;first&nbsp;page&nbsp;of&nbsp;search&nbsp;results.&nbsp;Optimal&nbsp;functionality&nbsp;(currently<br>
+functional,&nbsp;but&nbsp;disabled&nbsp;for&nbsp;time/space&nbsp;reasons)&nbsp;is&nbsp;to&nbsp;examine&nbsp;the&nbsp;PDF&nbsp;after&nbsp;downloading<br>
+it,&nbsp;extract&nbsp;header&nbsp;info&nbsp;detailing&nbsp;whether&nbsp;or&nbsp;not&nbsp;the&nbsp;thing&nbsp;has&nbsp;the&nbsp;correct&nbsp;author/page&nbsp;count,<br>
+and&nbsp;then&nbsp;return&nbsp;it.&nbsp;In&nbsp;either&nbsp;case,&nbsp;successes&nbsp;are&nbsp;returned&nbsp;in&nbsp;json&nbsp;format&nbsp;in&nbsp;'google_results.json'.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>allowed_domains</strong> = ['google.com']</dl>
+
+<dl><dt><strong>compmode</strong> = 'equals'</dl>
+
+<dl><dt><strong>name</strong> = 'bookspider'</dl>
+
+<dl><dt><strong>outer_querystring</strong> = 'http://www.google.com'</dl>
+
+<dl><dt><strong>target_author</strong> = ''</dl>
+
+<dl><dt><strong>target_pages</strong> = -30</dl>
+
+<dl><dt><strong>target_title</strong> = ''</dl>
+
+<dl><dt><strong>target_type</strong> = ''</dl>
+
+<dl><dt><strong>tia</strong> = ['', '', '', '']</dl>
+
+<hr>
+Methods inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><a name="BookSpider-__repr__"><strong>__repr__</strong></a> = __str__(self)</dt></dl>
+
+<dl><dt><a name="BookSpider-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="BookSpider-log"><strong>log</strong></a>(self, message, level<font color="#909090">=10</font>, **kw)</dt><dd><tt>Log&nbsp;the&nbsp;given&nbsp;messages&nbsp;at&nbsp;the&nbsp;given&nbsp;log&nbsp;level.&nbsp;Always&nbsp;use&nbsp;this<br>
+method&nbsp;to&nbsp;send&nbsp;log&nbsp;messages&nbsp;from&nbsp;your&nbsp;spider</tt></dd></dl>
+
+<dl><dt><a name="BookSpider-make_requests_from_url"><strong>make_requests_from_url</strong></a>(self, url)</dt></dl>
+
+<dl><dt><a name="BookSpider-set_crawler"><strong>set_crawler</strong></a>(self, crawler)</dt></dl>
+
+<dl><dt><a name="BookSpider-start_requests"><strong>start_requests</strong></a>(self)</dt></dl>
+
+<hr>
+Class methods inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><a name="BookSpider-handles_request"><strong>handles_request</strong></a>(cls, request)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>crawler</strong></dt>
+</dl>
+<dl><dt><strong>settings</strong></dt>
+</dl>
+<hr>
+Static methods inherited from <a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a>:<br>
+<dl><dt><a name="BookSpider-__new__"><strong>__new__</strong></a>(cls, *args, **kwargs)</dt></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

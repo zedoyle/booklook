@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module amazonspider</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>amazonspider</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/zach/semesters/spring2015/sdev/booklook/bookcrawl/bookcrawl/spiders/amazonspider.py">/home/zach/semesters/spring2015/sdev/booklook/bookcrawl/bookcrawl/spiders/amazonspider.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="scrapy.log.html">scrapy.log</a><br>
+</td><td width="25%" valign=top><a href="scrapy.html">scrapy</a><br>
+</td><td width="25%" valign=top><a href="scrapy.signals.html">scrapy.signals</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>(<a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="amazonspider.html#AmazonSpider">AmazonSpider</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AmazonSpider">class <strong>AmazonSpider</strong></a>(<a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;relatively&nbsp;simple&nbsp;spider&nbsp;that&nbsp;searches&nbsp;Amazon.com&nbsp;for&nbsp;a&nbsp;product&nbsp;page&nbsp;matching&nbsp;the&nbsp;supplied<br>
+initialization&nbsp;parameters&nbsp;(see&nbsp;below).&nbsp;Intended&nbsp;to&nbsp;be&nbsp;run&nbsp;first&nbsp;in&nbsp;a&nbsp;pseudopipeline&nbsp;to&nbsp;get<br>
+more&nbsp;accurate&nbsp;information&nbsp;on&nbsp;a&nbsp;book&nbsp;where&nbsp;the&nbsp;page&nbsp;count&nbsp;is&nbsp;not&nbsp;known.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="amazonspider.html#AmazonSpider">AmazonSpider</a></dd>
+<dd><a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a></dd>
+<dd><a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AmazonSpider-__init__"><strong>__init__</strong></a>(self, title<font color="#909090">=None</font>, author<font color="#909090">=None</font>, *args, **kwargs)</dt><dd><tt>In&nbsp;addition&nbsp;to&nbsp;the&nbsp;standard&nbsp;command&nbsp;line&nbsp;arguments,&nbsp;initializing&nbsp;an&nbsp;<a href="#AmazonSpider">AmazonSpider</a>&nbsp;permits&nbsp;passing<br>
+a&nbsp;title&nbsp;and&nbsp;author&nbsp;to&nbsp;the&nbsp;spider;&nbsp;functionally&nbsp;these&nbsp;arguments&nbsp;are&nbsp;treated&nbsp;the&nbsp;same&nbsp;and&nbsp;are&nbsp;both<br>
+passed&nbsp;to&nbsp;the&nbsp;amazon.com&nbsp;search&nbsp;query&nbsp;string.&nbsp;Because&nbsp;this&nbsp;is&nbsp;intended&nbsp;to&nbsp;GET&nbsp;the&nbsp;page&nbsp;number,&nbsp;<br>
+it&nbsp;cannot&nbsp;be&nbsp;passed&nbsp;as&nbsp;a&nbsp;parameter.</tt></dd></dl>
+
+<dl><dt><a name="AmazonSpider-parse"><strong>parse</strong></a>(self, response)</dt><dd><tt><a href="#AmazonSpider">AmazonSpider</a>'s&nbsp;parse&nbsp;function&nbsp;is&nbsp;fairly&nbsp;simple;&nbsp;from&nbsp;a&nbsp;response&nbsp;body&nbsp;(which&nbsp;should&nbsp;always&nbsp;be<br>
+an&nbsp;amazon.com&nbsp;search&nbsp;response&nbsp;page),&nbsp;it&nbsp;pulls&nbsp;out&nbsp;the&nbsp;first&nbsp;apparently&nbsp;list&nbsp;item&nbsp;that&nbsp;seems<br>
+to&nbsp;be&nbsp;a&nbsp;link&nbsp;to&nbsp;an&nbsp;amazon.com&nbsp;product&nbsp;page.&nbsp;It&nbsp;then&nbsp;spits&nbsp;this&nbsp;out&nbsp;in&nbsp;amazon_result.json.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>allowed_domains</strong> = ['amazon.com']</dl>
+
+<dl><dt><strong>name</strong> = 'amazonspider'</dl>
+
+<dl><dt><strong>target_author</strong> = ''</dl>
+
+<dl><dt><strong>target_title</strong> = ''</dl>
+
+<hr>
+Methods inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><a name="AmazonSpider-__repr__"><strong>__repr__</strong></a> = __str__(self)</dt></dl>
+
+<dl><dt><a name="AmazonSpider-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AmazonSpider-log"><strong>log</strong></a>(self, message, level<font color="#909090">=10</font>, **kw)</dt><dd><tt>Log&nbsp;the&nbsp;given&nbsp;messages&nbsp;at&nbsp;the&nbsp;given&nbsp;log&nbsp;level.&nbsp;Always&nbsp;use&nbsp;this<br>
+method&nbsp;to&nbsp;send&nbsp;log&nbsp;messages&nbsp;from&nbsp;your&nbsp;spider</tt></dd></dl>
+
+<dl><dt><a name="AmazonSpider-make_requests_from_url"><strong>make_requests_from_url</strong></a>(self, url)</dt></dl>
+
+<dl><dt><a name="AmazonSpider-set_crawler"><strong>set_crawler</strong></a>(self, crawler)</dt></dl>
+
+<dl><dt><a name="AmazonSpider-start_requests"><strong>start_requests</strong></a>(self)</dt></dl>
+
+<hr>
+Class methods inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><a name="AmazonSpider-handles_request"><strong>handles_request</strong></a>(cls, request)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="scrapy.spider.html#Spider">scrapy.spider.Spider</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>crawler</strong></dt>
+</dl>
+<dl><dt><strong>settings</strong></dt>
+</dl>
+<hr>
+Static methods inherited from <a href="scrapy.utils.trackref.html#object_ref">scrapy.utils.trackref.object_ref</a>:<br>
+<dl><dt><a name="AmazonSpider-__new__"><strong>__new__</strong></a>(cls, *args, **kwargs)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>amazon_book_search_base_string</strong> = 'http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Dstripbooks&amp;field-keywords='</td></tr></table>
+</body></html>
